@@ -1,6 +1,64 @@
 import { Head } from "$fresh/runtime.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
+import { GraphQLRequest } from "gql_request";
+import { githubGqlEndpoint } from "../utils/constant.ts";
+import { getEnv } from "../utils/env.ts";
 
-export default function Home() {
+interface Repository {
+  id: string;
+  url: string;
+  nameWithOwner: string;
+}
+
+export const handler: Handlers<Repository[] | null> = {
+  async GET(_, ctx) {
+    const query = `
+      query {
+        topic(name: "dotfiles") {
+          name
+          repositories(first: 10) {
+            edges {
+              node {
+                id
+                url
+                nameWithOwner
+              }
+            }
+          }
+        }
+      }
+    `;
+    const request = new GraphQLRequest(
+      githubGqlEndpoint,
+      query,
+      {
+        headers: {
+          Authorization: `Bearer ${getEnv("GITHUB_TOKEN")}`,
+        },
+      },
+    );
+
+    const response = await fetch(request);
+    const body: {
+      data: {
+        topic: {
+          name: string;
+          repositories: { edges: { node: Repository }[] };
+        };
+      };
+    } = await response.json();
+
+    return ctx.render(
+      body.data.topic.repositories.edges.map((elem) => elem.node),
+    );
+  },
+};
+
+export default function Home({ data }: PageProps<Repository[] | null>) {
+  if (!data) {
+    return <h1>Failed to fetch data</h1>;
+  }
+
   return (
     <>
       <Head>
@@ -9,7 +67,13 @@ export default function Home() {
       </Head>
       <div class="p-4 mx-auto max-w-screen-md">
         <p class="my-6">
-          Hello, World!
+          {data?.map((elem) => {
+            return (
+              <div>
+                {elem.nameWithOwner}
+              </div>
+            );
+          })}
         </p>
       </div>
     </>
