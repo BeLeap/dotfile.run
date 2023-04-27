@@ -8,28 +8,18 @@ import { Repository } from "../types/Repository.ts";
 
 export const handler: Handlers<Repository[] | null> = {
   async GET(_, ctx) {
-    const query = `
-      query {
-        topic(name: "dotfiles") {
-          name
-          repositories(first: 10) {
-            edges {
-              node {
-                id
-                url
-                nameWithOwner
-              }
-            }
-          }
-        }
-      }
-    `;
+    const query = await Deno.readTextFile(
+      "./queries/listRepositoryInTopic.gql",
+    );
     const request = new GraphQLRequest(
       githubGqlEndpoint,
       query,
       {
         headers: {
           Authorization: `Bearer ${getEnv("GITHUB_TOKEN")}`,
+        },
+        variables: {
+          first: 15,
         },
       },
     );

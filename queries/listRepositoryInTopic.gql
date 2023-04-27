@@ -1,0 +1,18 @@
+query ListRepositoryInTopic($first: Int) {
+  topic(name: "dotfiles") {
+    name
+    repositories(first: $first) {
+      edges {
+        node {
+          id
+          url
+          nameWithOwner
+          owner {
+            id
+            avatarUrl
+          }
+        }
+      }
+    }
+  }
+}
