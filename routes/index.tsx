@@ -6,6 +6,7 @@ export default function Home() {
     <>
       <Head>
         <title>dotfile.run</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div class="p-4 mx-auto max-w-screen-md">
         <img
