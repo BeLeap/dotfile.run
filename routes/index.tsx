@@ -3,6 +3,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { GraphQLRequest } from "gql_request";
 import { githubGqlEndpoint } from "../utils/constant.ts";
 import { getEnv } from "../utils/env.ts";
+import RepositoryCard from "../components/RepositoryCart.tsx";
 
 interface Repository {
   id: string;
@@ -67,13 +68,11 @@ export default function Home({ data }: PageProps<Repository[] | null>) {
       </Head>
       <div class="p-4 mx-auto max-w-screen-md">
         <p class="my-6">
-          {data?.map((elem) => {
-            return (
-              <div>
-                {elem.nameWithOwner}
-              </div>
-            );
-          })}
+          {data?.map((elem) => (
+            <RepositoryCard
+              reponame={elem.nameWithOwner}
+            />
+          ))}
         </p>
       </div>
     </>
