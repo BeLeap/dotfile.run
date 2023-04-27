@@ -1,11 +1,13 @@
+import { Repository } from "../types/Repository.ts";
+
 interface Props {
-  reponame: string;
+  repo: Repository;
 }
 
-export default function RepositoryCard({ reponame }: Props) {
+export default function RepositoryCard({ repo }: Props) {
   return (
     <div className="border m-4 p-4 rounded">
-      This is "{reponame}" Card
+      <h1 className="text-2xl">{repo.nameWithOwner}</h1>
     </div>
   );
 }

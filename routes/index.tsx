@@ -4,12 +4,7 @@ import { GraphQLRequest } from "gql_request";
 import { githubGqlEndpoint } from "../utils/constant.ts";
 import { getEnv } from "../utils/env.ts";
 import RepositoryCard from "../components/RepositoryCard.tsx";
-
-interface Repository {
-  id: string;
-  url: string;
-  nameWithOwner: string;
-}
+import { Repository } from "../types/Repository.ts";
 
 export const handler: Handlers<Repository[] | null> = {
   async GET(_, ctx) {
@@ -70,7 +65,7 @@ export default function Home({ data }: PageProps<Repository[] | null>) {
         <p class="my-6">
           {data?.map((elem) => (
             <RepositoryCard
-              reponame={elem.nameWithOwner}
+              repo={elem}
             />
           ))}
         </p>
