@@ -3,5 +3,9 @@ interface Props {
 }
 
 export default function RepositoryCard({ reponame }: Props) {
-  return <div>This is "{reponame}" Card</div>;
+  return (
+    <div className="border m-4 p-4 rounded">
+      This is "{reponame}" Card
+    </div>
+  );
 }

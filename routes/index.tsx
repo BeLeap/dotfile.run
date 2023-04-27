@@ -3,7 +3,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { GraphQLRequest } from "gql_request";
 import { githubGqlEndpoint } from "../utils/constant.ts";
 import { getEnv } from "../utils/env.ts";
-import RepositoryCard from "../components/RepositoryCart.tsx";
+import RepositoryCard from "../components/RepositoryCard.tsx";
 
 interface Repository {
   id: string;
