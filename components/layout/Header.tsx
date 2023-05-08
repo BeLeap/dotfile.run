@@ -1,10 +1,11 @@
 import { FunctionComponent } from "preact";
+import HeaderLink from "./HeaderLink.tsx";
 
 const header: FunctionComponent = () => {
   return (
     <div className="flex">
-      <a href="/">home</a>
-      <a href="/dotfiles">dotfiles</a>
+      <HeaderLink href="/">home</HeaderLink>
+      <HeaderLink href="/dotfiles">dotfiles</HeaderLink>
     </div>
   );
 };
