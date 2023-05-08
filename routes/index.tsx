@@ -5,7 +5,7 @@ import { getEnv } from "../utils/env.ts";
 import RepositoryCard from "../components/RepositoryCard.tsx";
 import { Repository } from "../types/Repository.ts";
 import { FunctionComponent } from "preact";
-import Layout from "../components/Layout.tsx";
+import Layout from "../components/layout/Layout.tsx";
 
 export const handler: Handlers<Repository[] | null> = {
   async GET(_, ctx) {
