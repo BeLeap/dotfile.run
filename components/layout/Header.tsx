@@ -4,8 +4,8 @@ import HeaderLink from "./HeaderLink.tsx";
 const header: FunctionComponent = () => {
   return (
     <div className="flex">
-      <HeaderLink href="/">home</HeaderLink>
-      <HeaderLink href="/dotfiles">dotfiles</HeaderLink>
+      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/dotfiles">Dotfiles</HeaderLink>
     </div>
   );
 };

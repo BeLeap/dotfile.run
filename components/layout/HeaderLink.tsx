@@ -5,7 +5,7 @@ const headerLink: FunctionComponent<
 > = ({ href, children }) => {
   return (
     <a
-      className=""
+      className="m-4 p-2 text-xl hover:underline"
       href={href}
     >
       {children}
