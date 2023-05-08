@@ -5,6 +5,7 @@ import { githubGqlEndpoint } from "../utils/constant.ts";
 import { getEnv } from "../utils/env.ts";
 import RepositoryCard from "../components/RepositoryCard.tsx";
 import { Repository } from "../types/Repository.ts";
+import { FunctionComponent } from "preact";
 
 export const handler: Handlers<Repository[] | null> = {
   async GET(_, ctx) {
@@ -40,7 +41,9 @@ export const handler: Handlers<Repository[] | null> = {
   },
 };
 
-export default function Home({ data }: PageProps<Repository[] | null>) {
+const home: FunctionComponent<{ data: PageProps<Repository[] | null> }> = (
+  { data },
+) => {
   if (!data) {
     return <h1>Failed to fetch data</h1>;
   }
@@ -62,4 +65,5 @@ export default function Home({ data }: PageProps<Repository[] | null>) {
       </div>
     </>
   );
-}
+};
+export default home;
