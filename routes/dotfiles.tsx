@@ -2,7 +2,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { GraphQLRequest } from "gql_request";
 import { githubGqlEndpoint } from "../utils/constant.ts";
 import { getEnv } from "../utils/env.ts";
-import RepositoryCard from "../components/RepositoryCard.tsx";
+import RepositoryCard from "../components/dotfiles/RepositoryCard.tsx";
 import { Repository } from "../types/Repository.ts";
 import { FunctionComponent } from "preact";
 import Layout from "../components/layout/Layout.tsx";
