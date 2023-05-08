@@ -1,4 +1,3 @@
-import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { GraphQLRequest } from "gql_request";
 import { githubGqlEndpoint } from "../utils/constant.ts";
@@ -6,6 +5,7 @@ import { getEnv } from "../utils/env.ts";
 import RepositoryCard from "../components/RepositoryCard.tsx";
 import { Repository } from "../types/Repository.ts";
 import { FunctionComponent } from "preact";
+import Layout from "../components/Layout.tsx";
 
 export const handler: Handlers<Repository[] | null> = {
   async GET(_, ctx) {
@@ -41,7 +41,7 @@ export const handler: Handlers<Repository[] | null> = {
   },
 };
 
-const home: FunctionComponent<{ data: PageProps<Repository[] | null> }> = (
+const home: FunctionComponent<PageProps<Repository[] | null>> = (
   { data },
 ) => {
   if (!data) {
@@ -49,11 +49,7 @@ const home: FunctionComponent<{ data: PageProps<Repository[] | null> }> = (
   }
 
   return (
-    <>
-      <Head>
-        <title>dotfile.run</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+    <Layout>
       <div class="p-4 mx-auto max-w-screen-md">
         <p class="my-6">
           {data?.map((elem) => (
@@ -63,7 +59,7 @@ const home: FunctionComponent<{ data: PageProps<Repository[] | null> }> = (
           ))}
         </p>
       </div>
-    </>
+    </Layout>
   );
 };
 export default home;

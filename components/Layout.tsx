@@ -1,0 +1,18 @@
+import { Head } from "$fresh/runtime.ts";
+import { ComponentChildren, FunctionComponent } from "preact";
+
+const layout: FunctionComponent<{ children: ComponentChildren }> = (
+  { children },
+) => {
+  return (
+    <>
+      <Head>
+        <title>dotfile.run</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      {children}
+    </>
+  );
+};
+
+export default layout;
