@@ -4,7 +4,7 @@ import Card from "../components/Card.tsx";
 
 const home: FunctionComponent = () => {
   return (
-    <Layout>
+    <Layout active="home">
       <div className="flex">
         <Card className="w-500">
           Welcome to dotfile.run!

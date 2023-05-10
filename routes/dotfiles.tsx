@@ -49,7 +49,7 @@ const home: FunctionComponent<PageProps<Repository[] | null>> = (
   }
 
   return (
-    <Layout>
+    <Layout active="dotfiles">
       <div class="p-4 mx-auto max-w-screen-md">
         <p class="my-6">
           {data?.map((elem) => (
