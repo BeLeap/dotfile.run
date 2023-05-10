@@ -1,3 +1,4 @@
+import { FunctionComponent } from "preact";
 import { Repository } from "../../types/Repository.ts";
 import Card from "../Card.tsx";
 
@@ -5,7 +6,7 @@ interface Props {
   repo: Repository;
 }
 
-export default function RepositoryCard({ repo }: Props) {
+const repositoryCard: FunctionComponent<Props> = ({ repo }) => {
   return (
     <Card>
       <h1 className="text-2xl">{repo.nameWithOwner}</h1>
@@ -15,4 +16,5 @@ export default function RepositoryCard({ repo }: Props) {
       />
     </Card>
   );
-}
+};
+export default repositoryCard;
