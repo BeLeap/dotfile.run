@@ -50,14 +50,12 @@ const home: FunctionComponent<PageProps<Repository[] | null>> = (
 
   return (
     <Layout active="dotfiles">
-      <div class="p-4 mx-auto max-w-screen-md">
-        <p class="my-6">
-          {data?.map((elem) => (
-            <RepositoryCard
-              repo={elem}
-            />
-          ))}
-        </p>
+      <div class="p-4 mx-auto">
+        {data?.map((elem) => (
+          <RepositoryCard
+            repo={elem}
+          />
+        ))}
       </div>
     </Layout>
   );
