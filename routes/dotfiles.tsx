@@ -50,7 +50,7 @@ const home: FunctionComponent<PageProps<Repository[] | null>> = (
 
   return (
     <Layout active="dotfiles">
-      <div class="p-4 mx-auto">
+      <div class="p-4 mx-auto flex flex-wrap">
         {data?.map((elem) => (
           <RepositoryCard
             repo={elem}

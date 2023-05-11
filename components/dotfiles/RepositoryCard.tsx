@@ -8,13 +8,15 @@ interface Props {
 
 const repositoryCard: FunctionComponent<Props> = ({ repo }) => {
   return (
-    <Card>
-      <h1 className="text-2xl">{repo.nameWithOwner}</h1>
-      <img
-        className="rounded-full w-10 h-10"
-        src={repo.owner.avatarUrl}
-      />
-    </Card>
+    <a href={repo.url}>
+      <Card>
+        <img
+          className="rounded-full w-10 h-10"
+          src={repo.owner.avatarUrl}
+        />
+        <h1 className="text-2xl">{repo.nameWithOwner}</h1>
+      </Card>
+    </a>
   );
 };
 export default repositoryCard;
