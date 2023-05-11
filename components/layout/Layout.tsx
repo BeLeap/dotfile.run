@@ -13,7 +13,7 @@ const layout: FunctionComponent<{ children: ComponentChildren } & HeaderProps> =
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
 
-        <Header active={active} />
+        <Header active={active} className="border-b-black border-b-8" />
         {children}
       </>
     );

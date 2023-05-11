@@ -10,7 +10,7 @@ const card: FunctionComponent<
     <div
       className={`${
         className ? className : ""
-      } border m-4 p-4 rounded flex justify-between`}
+      } border border-4 border-black m-4 p-4 flex justify-between font-black`}
     >
       {children}
     </div>
