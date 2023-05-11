@@ -1,6 +1,6 @@
 import { FunctionComponent } from "preact";
 import Layout from "../components/layout/Layout.tsx";
-import Card from "../components/LinkCard.tsx";
+import Card from "../components/Card.tsx";
 
 const home: FunctionComponent = () => {
   return (
